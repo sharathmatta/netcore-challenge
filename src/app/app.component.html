@@ -1,0 +1,49 @@
+<div class="main-content">
+  <div class="form-content">
+    <h2 class="header">Car Registration Form</h2>
+    <form class="form" [formGroup]="carsForm">
+      <div class="form-control">
+        <label for="fullName">Full Name :</label>
+        <input type="text" [formControl]="fullName" />
+        <p class="error-msg" *ngIf="fullName.touched && fullName.errors?.required">Full Name is Required</p>
+        <p class="error-msg" *ngIf="fullName.touched && fullName.errors?.pattern">Only a-z A-Z characters are allowed
+        </p>
+      </div>
+
+      <div class="form-control">
+        <label for="brand">Brand :</label>
+        <select *ngIf="carsList.length > 0" data-placeholder="Choose a Brand..." class="brand-select">
+          <option></option>
+          <option *ngFor="let car of carsList" [value]="car.brand">{{car.brand}}</option>
+        </select>
+      </div>
+      <div class="form-control">
+        <label for="brand">Auto Parts :</label>
+        <select *ngIf="partsList.length > 0" data-placeholder="Choose a Brand..." multiple class="part-select">
+          <option *ngFor="let part of partsList">{{part['List of auto parts']}}</option>
+        </select>
+      </div>
+      <div class="form-control">
+        <label for="brand">Color :</label>
+      </div>
+      <div class="form-control">
+        <input type="submit" style="width: fit-content;" (click)="onSubmit()" value="Submit">
+      </div>
+    </form>
+  </div>
+  <div class="summary-content">
+    <h2 class="header">Summary</h2>
+    <div class="data-entry">
+      <p>Full Name :</p>
+      <p>{{fullName.value}}</p>
+    </div>
+    <div class="data-entry">
+      <p>Brand : </p>
+      <p>{{brand.value}}</p>
+    </div>
+    <div class="data-entry">
+      <p>Parts Selected : </p>
+      <p>{{autoParts.value}}</p>
+    </div>
+  </div>
+</div>

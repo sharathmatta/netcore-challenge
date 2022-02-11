@@ -1,0 +1,55 @@
+.main-content{
+  h1, h2, h3, h4 {
+    border: none;
+    margin: 20px 0px;
+  }
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .error-msg{
+    font-size:x-small;
+    color: red;
+  }
+  .form-content{
+    width: 100%;
+    padding: 20px;
+    .form{
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      .form-control{
+        display: flex;
+        margin: 10px 0;
+        flex-direction: column;
+        input{
+          width: 250px;
+        }
+      }
+    }
+  }
+  .summary-content{
+    width: 100%;
+    padding: 20px;
+    .data-entry{
+      display: flex;
+      flex-direction: row;
+      margin: 20px 0;
+      p{
+        margin-right: 10px;
+      }
+    }
+
+  }
+}
+
+@media (min-width: 480px){
+  .main-content {
+    flex-direction: row;
+    .form-content{
+      width: 50%;
+    }
+    .summary-content {
+      width: 50%;
+    }
+  }
+}
